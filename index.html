@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no"/>
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta name="keywords" content="连橙二维码支付，橙子互动，连橙，微信，支付，微信支付，申请微信支付，橙子互动连橙，开通，申请，会员，营销，设计，海报，物料，开店，赚钱，流水，到账">
+	    <meta name="description" content="连橙，一个全新的连接消费者和商户的会员平台，为消费者连接附近又好又近的商户，同时让商户零门槛玩转移动支付、会员、大数据、社交营销">
+		<meta name="HandheldFriendly" content="True">
+		<title> 连橙商户通</title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			.main{
+				width: 100%;
+				overflow: hidden;
+			}
+			.special {
+				max-width: 100%;
+				height: auto;
+				
+			}
+			.img{
+				margin: 0 auto;
+				text-align: center;
+			}
+			.xiaoshou{
+				margin: 20px auto;
+				text-align: center;
+				color: #0b0205;
+				font-family: '黑体';
+				padding-top: 0.5rem;
+				padding-bottom: 1rem;
+				font-size: 3.9vw;
+				width: 100%;
+			}
+			.line{
+				height: 0.1rem;
+				width: 1rem;
+				background-color: #ff9000;
+				text-align: center;
+				margin:0.2rem auto;
+				
+			}
+		</style>
+		
+	
+	</head>
+	<body>
+		<div class="main">
+			<div class="img"><img src="img/01.jpg" class="special" ></div>
+			<div class="img"><img src="img/02.jpg" class="special" ></div>
+			<div class="img"><img src="img/03.jpg" class="special" ></div>
+			<!--<div><img src="img/04.jpg" class="special" ></div>-->
+			<div class="xiaoshou" >
+				<p class="way">销售代表联系方式</p>
+				<p class="line"> </p>
+				<p style="margin-top: 1.0rem;"><span>姓名：<span id="name1">龚文茂</span></span> &nbsp;<span>电话：<span id="phone1">13722383211</span></span></p>
+			</div>
+			<div class="img"><img src="img/05.png" class="special" ></div>
+			<script src="jquery-1.11.1.js" type="text/javascript" charset="utf-8"></script>
+			<script type="text/javascript">
+				
+			$(document).ready(function(){      
+        var href1=window.location.href;
+        var index = href1.lastIndexOf("\=");  
+        var href2;
+        href2  = href1.substring(index + 1, href1.length);
+         getNameAndPhoneNum(href2);
+<!--http://114.215.175.174:9094/cc/concats?ranid=ypwig-->
+			function getNameAndPhoneNum(obj){
+			$.ajax({ 
+                type: 'GET',
+                url: 'http://114.215.175.174:9094/cc/concats?ranid='+href2,
+                dataType: 'jsonp',
+                jsonp:'jsonpcallback',//jsonpcallback
+                jsonpCallback: "jsonpcallback",//jsonpcallback
+               success : function (data) {  
+                 $("#name1").html(data.name);
+                 $("#phone1").html(data.phonenum);
+
+             
+            },  
+         });  
+
+				
+            }
+		
+})
+			</script>
+		
+		</div>
+	</body>
+</html>
